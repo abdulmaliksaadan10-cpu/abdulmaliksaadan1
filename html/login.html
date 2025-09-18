@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdulmalik.S</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body class="bg-dark text-light">
+    <!-- شريط التنقل -->
+     <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+        <div class="container">
+            <a class="logo" href="#">Dev.Abdulmalik.S</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item" id="s">
+                        <a class="nav-link" href="../index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item" id="s">
+                        <a class="nav-link" href="../html/login.html"> تسجيل الدخول</a>
+                    </li>
+                    <li class="nav-item" id="s">
+                        <a class="nav-link " href="../html/boot.html">خدماتنا</a>
+                    </li>
+                    <li class="nav-item" id="s">
+                        <a class="nav-link" href="../html/projects.html">المشاريع</a>
+                    </li>
+                    <li class="nav-item" id="s">
+                        <a class="nav-link" href="../html/callme.html">اتصل بنا</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+   </header>
+
+    <!-- محتوى الصفحة -->
+    <main class="main-content">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <div class="auth-tab active" onclick="switchTab('login')">تسجيل الدخول</div>
+                    <div class="auth-tab" onclick="switchTab('register')">إنشاء حساب</div>
+                </div>
+                
+                <div class="auth-forms">
+                    <!-- نموذج تسجيل الدخول -->
+                    <form class="auth-form active" id="login-form">
+                        <div class="form-group">
+                            <label for="login-email">البريد الإلكتروني</label>
+                            <input type="email" id="login-email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="login-password">كلمة المرور</label>
+                            <input type="password" id="login-password" required>
+                        </div>
+                        
+                        <div class="form-options">
+                            <div class="remember-me">
+                                <input type="checkbox" id="remember-me">
+                                <label for="remember-me">تذكرني</label>
+                            </div>
+                            
+                            <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">تسجيل الدخول</button>
+                        
+                        <div class="social-login">
+                            <p>أو سجل الدخول باستخدام</p>
+                            <div class="social-icons">
+                                <a href="#" class="social-icon">G</a>
+                                <a href="#" class="social-icon">f</a>
+                                <a href="#" class="social-icon">in</a>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <!-- نموذج إنشاء حساب -->
+                    <form class="auth-form" id="register-form">
+                        <div class="form-group">
+                            <label for="register-name">الاسم الكامل</label>
+                            <input type="text" id="register-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-email">البريد الإلكتروني</label>
+                            <input type="email" id="register-email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-password">كلمة المرور</label>
+                            <input type="password" id="register-password" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-confirm-password">تأكيد كلمة المرور</label>
+                            <input type="password" id="register-confirm-password" required>
+                        </div>
+                        
+                        <div class="form-options">
+                            <div class="remember-me">
+                                <input type="checkbox" id="agree-terms" required>
+                                <label for="agree-terms">أوافق على الشروط والأحكام</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">إنشاء حساب</button>
+                        
+                        <div class="social-login">
+                            <p>أو سجل باستخدام</p>
+                            <div class="social-icons">
+                                <a href="#" class="social-icon">G</a>
+                                <a href="#" class="social-icon">f</a>
+                                <a href="#" class="social-icon">in</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- التذييل -->
+    <footer>
+        <div class="container">
+      
+            <p class="copyright">©  جميع الحقوق محفوظة لشركة A.Saadan</p>
+        </div>
+    </footer>
+
+    <script>
+        // دالة للتبديل بين نماذج تسجيل الدخول وإنشاء حساب
+        function switchTab(tabName) {
+            // إخفاء جميع النماذج
+            document.querySelectorAll('.auth-form').forEach(form => {
+                form.classList.remove('active');
+            });
+            
+            // إلغاء تنشيط جميع الألسنة
+            document.querySelectorAll('.auth-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // إظهار النموذج المحدد وتنشيط اللسان
+            if (tabName === 'login') {
+                document.getElementById('login-form').classList.add('active');
+                document.querySelectorAll('.auth-tab')[0].classList.add('active');
+            } else {
+                document.getElementById('register-form').classList.add('active');
+                document.querySelectorAll('.auth-tab')[1].classList.add('active');
+            }
+        }
+         
+ 
+  
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
